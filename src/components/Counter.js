@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import { increment, decrement } from '../actions';
 
 class Counter extends Component {
+    increment = event => {
+        event.preventDefault();
+        this.props.increment(this.props.count++);
+    };
+
+    decrement = event => {
+        event.preventDefault();
+        this.props.decrement();
+    };
+
     incrementIfOdd = () => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
@@ -20,10 +30,10 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={event => this.increment(event)}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={event => this.decrement(event)}>
                     -
                 </button>
                  {/* Uncomment these button tags if you got
