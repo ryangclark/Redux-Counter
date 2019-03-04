@@ -5,7 +5,7 @@ import { increment, decrement } from '../actions';
 class Counter extends Component {
     increment = event => {
         event.preventDefault();
-        this.props.increment(this.props.count++);
+        this.props.increment(this.props.count + 1);
     };
 
     decrement = event => {
