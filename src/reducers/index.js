@@ -14,11 +14,15 @@ export default (state = initialState, action) => {
     case INCREMENT:
       return {
         ...state,
+        // NOTE: Math is already done, 
+        // just set payload
         count: action.payload
       }
     case DECREMENT:
       return {
         ...state,
+        // NOTE: Do math here, 
+        // then set new state
         count: state.count - 1
       }
     default:

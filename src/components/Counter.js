@@ -5,11 +5,15 @@ import { increment, decrement } from '../actions';
 class Counter extends Component {
     increment = event => {
         event.preventDefault();
+        // NOTE: Do math here, 
+        // pass result to reducer as payload 
         this.props.increment(this.props.count + 1);
     };
 
     decrement = event => {
         event.preventDefault();
+        // NOTE: Just call `decrement()`, 
+        // and do math in reducer
         this.props.decrement();
     };
 
@@ -47,7 +51,7 @@ class Counter extends Component {
             </p>
         );
     }
-}
+};
 
 // The mapStateToProps function specifies which portion of the
 // state tree this component needs to receive. In this case,
