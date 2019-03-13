@@ -3,6 +3,20 @@ import { connect } from 'react-redux';
 import { increment, decrement } from '../actions';
 
 class Counter extends Component {
+    increment = event => {
+        event.preventDefault();
+        // NOTE: Do math here, 
+        // pass result to reducer as payload 
+        this.props.increment(this.props.count + 1);
+    };
+
+    decrement = event => {
+        event.preventDefault();
+        // NOTE: Just call `decrement()`, 
+        // and do math in reducer
+        this.props.decrement();
+    };
+
     incrementIfOdd = () => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
@@ -20,10 +34,10 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={event => this.increment(event)}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={event => this.decrement(event)}>
                     -
                 </button>
                  {/* Uncomment these button tags if you got
@@ -37,7 +51,7 @@ class Counter extends Component {
             </p>
         );
     }
-}
+};
 
 // The mapStateToProps function specifies which portion of the
 // state tree this component needs to receive. In this case,
